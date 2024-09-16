@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sport Games Dashboard</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+        <link rel="stylesheet" th:href="${/dashboard}" />
+</head>
+<body>
+    <div class="container">
+        <h1>Sport Games Dashboard</h1>
+        
+
+		<h2>Sports Overview</h2>
+        <ul>
+            <li th:each="sport : ${sports}">
+                <a th:href="@{'/sport/' + ${sport.id}}"><span th:text="${sport.name}"></span></a>
+            </li>
+        </ul>
+        
+
+        <div th:if="${hasPurchasedTickets}">
+            <a href="/tickets" class="btn btn-primary">View Purchased Tickets</a>
+        </div>
+    </div>
+</body>
+</html>
